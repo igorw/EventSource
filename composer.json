@@ -1,0 +1,21 @@
+{
+    "name": "igorw/event-source",
+    "type": "library",
+    "description": "A PHP 5.3 library for creating an EventSource stream.",
+    "keywords": ["event-source", "server-sent-events", "real-time"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Wiedler",
+            "email": "igor@wiedler.ch"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Igorw\\EventSource": "src"
+        }
+    }
+}
