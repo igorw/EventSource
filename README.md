@@ -15,11 +15,13 @@ The recommended way to install EventSource is [through composer](http://packagis
 
 Just create a composer.json file for your project:
 
-    {
-        "require": {
-            "igorw/event-source": "*"
-        }
+```JSON
+{
+    "require": {
+        "igorw/event-source": "*"
     }
+}
+```
 
 And run these two commands to install it:
 
