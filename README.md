@@ -125,6 +125,18 @@ set_time_limit(0);
 ini_set('memory_limit', '512M');
 ```
 
+Tests
+-----
+
+Before running the tests you need to have composer set up an autoloader:
+
+    $ wget http://getcomposer.org/composer.phar
+    $ php composer.phar install
+
+Now you can run the unit tests.
+
+    $ phpunit
+
 License
 -------
 MIT, see LICENSE.

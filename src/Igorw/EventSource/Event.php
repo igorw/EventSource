@@ -24,21 +24,21 @@ class Event
             $this->comments,
             $this->extractNewlines($comment)
         );
-        
+
         return $this;
     }
 
     public function setId($id = null)
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
     public function setEvent($event = null)
     {
         $this->event = $event;
-        
+
         return $this;
     }
 
@@ -65,7 +65,7 @@ class Event
                     $this->getFormattedId().
                     $this->getFormattedEvent().
                     $this->getFormattedData();
-        
+
         return '' !== $response ? $response."\n" : '';
     }
 
