@@ -81,6 +81,8 @@ stream.addEventListener('message', function (event) {
 });
 ```
 
+## Advanced
+
 ### Custom handler
 
 By default the library will assume you are running in a traditional apache-like
