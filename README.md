@@ -111,6 +111,18 @@ You just pass it to the constructor of the stream:
 $stream = new Stream($handler);
 ```
 
+### PHP time limit
+
+In some setups it may be required to remove the time limit of the script and
+increase th memory limit. If you are having problems with your script dying
+after 30 or 60 seconds, add these two lines.
+
+```php
+<?php
+set_time_limit(0);
+ini_set('memory_limit', '512M');
+```
+
 License
 -------
 MIT, see LICENSE.
