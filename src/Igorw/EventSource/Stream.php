@@ -20,11 +20,11 @@ class Stream
     private $buffer;
     private $handler;
 
-    public function __construct(\Closure $handler)
+    public function __construct($handler = null)
     {
         $this->buffer = new \SplQueue();
         $this->buffer->setIteratorMode(\SplQueue::IT_MODE_DELETE);
-        $this->handler = $handler;
+        $this->handler = $handler ?: new EchoHandler();
     }
 
     public function event()
