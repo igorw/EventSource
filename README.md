@@ -9,6 +9,8 @@ of this protocol.
 It is designed to be transport agnostic, allowing you to use it with apache directly or with
 other webservers, such as mongrel2.
 
+[![Build Status](https://secure.travis-ci.org/igorw/evenement.png)](http://travis-ci.org/igorw/evenement)
+
 ## Fetch
 
 The recommended way to install EventSource is [through composer](http://packagist.org).
