@@ -113,6 +113,8 @@ class EventTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Igorw\EventSource\Event::setData
      * @covers Igorw\EventSource\Event::getFormattedData
+     * @covers Igorw\EventSource\Event::extractNewlines
+     * @covers Igorw\EventSource\Event::formatLines
      */
     public function testDataFormattingWithManyLines()
     {
