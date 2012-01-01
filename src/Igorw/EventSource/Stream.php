@@ -51,6 +51,11 @@ class Stream
         }
     }
 
+    public function getHandler()
+    {
+        return $this->handler;
+    }
+
     static public function getHeaders()
     {
         return array(
