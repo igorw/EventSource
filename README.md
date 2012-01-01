@@ -9,7 +9,7 @@ of this protocol.
 It is designed to be transport agnostic, allowing you to use it with apache directly or with
 other webservers, such as mongrel2.
 
-[![Build Status](https://secure.travis-ci.org/igorw/evenement.png)](http://travis-ci.org/igorw/evenement)
+[![Build Status](https://secure.travis-ci.org/igorw/EventSource.png)](http://travis-ci.org/igorw/EventSource)
 
 ## Fetch
 
