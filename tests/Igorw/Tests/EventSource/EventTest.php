@@ -15,6 +15,9 @@ use Igorw\EventSource\Event;
 
 class EventTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @covers Igorw\EventSource\Event
+     */
     public function testInitialFormattedValuesShouldBeEmpty()
     {
         $event = new Event();
@@ -24,6 +27,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('', $event->getFormattedData());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::addComment
+     * @covers Igorw\EventSource\Event::getFormattedComments
+     */
     public function testCommentFormatting()
     {
         $event = new Event();
@@ -31,6 +38,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(": a comment\n", $event->getFormattedComments());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::addComment
+     * @covers Igorw\EventSource\Event::getFormattedComments
+     */
     public function testCommentFormattingWithManyComments()
     {
         $event = new Event();
@@ -40,6 +51,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(": a comment\n: a second comment\n: another comment\n", $event->getFormattedComments());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::setId
+     * @covers Igorw\EventSource\Event::getFormattedId
+     */
     public function testIdFormatting()
     {
         $event = new Event();
@@ -47,6 +62,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("id: 1\n", $event->getFormattedId());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::setId
+     * @covers Igorw\EventSource\Event::getFormattedId
+     */
     public function testIdOverride()
     {
         $event = new Event();
@@ -56,6 +75,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("id: 2\n", $event->getFormattedId());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::setEvent
+     * @covers Igorw\EventSource\Event::getFormattedEvent
+     */
     public function testEventFormatting()
     {
         $event = new Event();
@@ -63,6 +86,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("event: foo\n", $event->getFormattedEvent());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::setEvent
+     * @covers Igorw\EventSource\Event::getFormattedEvent
+     */
     public function testEventOverride()
     {
         $event = new Event();
@@ -72,6 +99,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("event: bar\n", $event->getFormattedEvent());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::setData
+     * @covers Igorw\EventSource\Event::getFormattedData
+     */
     public function testDataFormatting()
     {
         $event = new Event();
@@ -79,6 +110,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("data: happy new year\n", $event->getFormattedData());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::setData
+     * @covers Igorw\EventSource\Event::getFormattedData
+     */
     public function testDataFormattingWithManyLines()
     {
         $event = new Event();
@@ -86,6 +121,10 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("data: we wish you a merry christmas\ndata: and a happy new year\n", $event->getFormattedData());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::appendData
+     * @covers Igorw\EventSource\Event::getFormattedData
+     */
     public function testDataFormattingWithAppend()
     {
         $event = new Event();
@@ -94,6 +133,9 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("data: we wish you a merry christmas\ndata: and a happy new year\n", $event->getFormattedData());
     }
 
+    /**
+     * @covers Igorw\EventSource\Event::dump
+     */
     public function testDumpIncludesEverything()
     {
         $event = new Event();
