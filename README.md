@@ -87,6 +87,68 @@ stream.addEventListener('message', function (event) {
 
 ## Advanced
 
+### Last event id
+
+When your events have ids, the client will send a `Last-Event-ID` header on
+reconnection. You can read this value and re-send any events that occured after
+the one provided by the user.
+
+```php
+<?php
+
+$lastId = filter_input(INPUT_SERVER, 'HTTP_LAST_EVENT_ID');
+
+if ($lastId) {
+    $buffer = getMessagesAfter($lastId);
+
+    foreach ($buffer as $message) {
+        $stream->event()
+            ->setId($message['id'])
+            ->setData($message['data']);
+    }
+
+    $stream->flush();
+}
+```
+
+### Event namespacing
+
+You can namespace events by using the `setEvent` method on the event. This
+allows you to bind to those event types specifically on the client side.
+
+Here is a stream that sends two events. One of type `foo` and one of type
+`bar`.
+
+```php
+<?php
+
+$stream
+    ->event()
+        ->setEvent('foo')
+        ->setData($message['data']);
+    ->end()
+    ->event()
+        ->setEvent('bar')
+        ->setData($message['data']);
+    ->end()
+    ->flush();
+```
+
+On the client you bind to that event instead of the generic `message` one.
+Do note that the `message` event will not catch these messages.
+
+```JavaScript
+var stream = new EventSource('stream.php');
+
+stream.addEventListener('foo', function (event) {
+    console.log('Received event foo!');
+});
+
+stream.addEventListener('bar', function (event) {
+    console.log('Received event bar!');
+});
+```
+
 ### Custom handler
 
 By default the library will assume you are running in a traditional apache-like
