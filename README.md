@@ -149,6 +149,38 @@ stream.addEventListener('bar', function (event) {
 });
 ```
 
+### Sending JSON
+
+In most applications you will want to send more complex data as opposed to
+simple strings. The recommended way of doing this is to use the JSON format.
+It can encode and decode nested structures quite well.
+
+On the server side, simply use the `json_encode` function to encode a value:
+
+```php
+<?php
+
+$data = array('userIds' => array(21, 43, 127));
+
+$stream
+    ->event()
+        ->setData(json_encode($data));
+    ->end()
+    ->flush();
+```
+
+On the client side, you can use `JSON.parse` to decode it. For old browsers,
+where `JSON` is not available, see [json2.js](https://github.com/douglascrockford/JSON-js).
+
+```JavaScript
+var stream = new EventSource('stream.php');
+
+stream.addEventListener('message', function (event) {
+    var data = JSON.parse(event.data);
+    console.log('User IDs: '+data.userIds.join(', '));
+});
+```
+
 ### Custom handler
 
 By default the library will assume you are running in a traditional apache-like
