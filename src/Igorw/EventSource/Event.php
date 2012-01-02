@@ -16,6 +16,7 @@ class Event
     private $comments = array();
     private $id;
     private $event;
+    private $retry;
     private $data = array();
 
     public function addComment($comment)
@@ -28,16 +29,27 @@ class Event
         return $this;
     }
 
-    public function setId($id = null)
+    public function setId($id)
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function setEvent($event = null)
+    public function setEvent($event)
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+   public function setRetry($retry)
+    {
+        if (!is_numeric($retry)) {
+            throw new \InvalidArgumentException('Retry value must be numeric.');
+        }
+
+        $this->retry = $retry;
 
         return $this;
     }
@@ -64,6 +76,7 @@ class Event
         $response = $this->getFormattedComments().
                     $this->getFormattedId().
                     $this->getFormattedEvent().
+                    $this->getFormattedRetry().
                     $this->getFormattedData();
 
         return '' !== $response ? $response."\n" : '';
@@ -82,6 +95,11 @@ class Event
     public function getFormattedEvent()
     {
         return $this->formatLines('event', $this->event);
+    }
+
+    public function getFormattedRetry()
+    {
+        return $this->formatLines('retry', $this->retry);
     }
 
     public function getFormattedData()

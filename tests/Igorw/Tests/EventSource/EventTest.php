@@ -24,6 +24,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('', $event->getFormattedComments());
         $this->assertSame('', $event->getFormattedId());
         $this->assertSame('', $event->getFormattedEvent());
+        $this->assertSame('', $event->getFormattedRetry());
         $this->assertSame('', $event->getFormattedData());
     }
 
@@ -97,6 +98,51 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame("event: foo\n", $event->getFormattedEvent());
         $event->setEvent('bar');
         $this->assertSame("event: bar\n", $event->getFormattedEvent());
+    }
+
+    /**
+     * @covers Igorw\EventSource\Event::setRetry
+     * @covers Igorw\EventSource\Event::getFormattedRetry
+     */
+    public function testRetryFormatting()
+    {
+        $event = new Event();
+        $event->setRetry(1000);
+        $this->assertSame("retry: 1000\n", $event->getFormattedRetry());
+    }
+
+    /**
+     * @covers Igorw\EventSource\Event::setRetry
+     * @covers Igorw\EventSource\Event::getFormattedRetry
+     */
+    public function testRetryWithZero()
+    {
+        $event = new Event();
+        $event->setRetry(0);
+        $this->assertSame("retry: 0\n", $event->getFormattedRetry());
+    }
+
+    /**
+     * @covers Igorw\EventSource\Event::setRetry
+     * @expectedException InvalidArgumentException
+     */
+    public function testRetryValueMustBeNumeric()
+    {
+        $event = new Event();
+        $event->setRetry('not an int');
+    }
+
+    /**
+     * @covers Igorw\EventSource\Event::setRetry
+     * @covers Igorw\EventSource\Event::getFormattedRetry
+     */
+    public function testRetryOverride()
+    {
+        $event = new Event();
+        $event->setRetry(1000);
+        $this->assertSame("retry: 1000\n", $event->getFormattedRetry());
+        $event->setRetry(3000);
+        $this->assertSame("retry: 3000\n", $event->getFormattedRetry());
     }
 
     /**
