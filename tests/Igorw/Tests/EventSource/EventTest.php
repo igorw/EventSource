@@ -190,12 +190,14 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $event->addComment('a juicy comment');
         $event->setId('11');
         $event->setEvent('foo');
+        $event->setRetry(2000);
         $event->setData("we wish you a merry christmas\nand a happy new year");
 
         $expected = <<<EOT
 : a juicy comment
 id: 11
 event: foo
+retry: 2000
 data: we wish you a merry christmas
 data: and a happy new year
 
