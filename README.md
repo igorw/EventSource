@@ -127,6 +127,12 @@ set_time_limit(0);
 ini_set('memory_limit', '512M');
 ```
 
+### Polyfill
+
+Most old browsers have not implemented EventSource yet. Luckily there is a
+[polyfill](https://github.com/Yaffle/EventSource) available, that allows them
+to be used in a wider range of browsers.
+
 Tests
 -----
 
