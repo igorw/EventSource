@@ -15,7 +15,7 @@
 <script>
     var stream = new EventSource('stream.php');
 
-    stream.addEventListener('message', function (event) {
+    stream.addEventListener('notification', function (event) {
         $('<div>').text(event.data).prependTo('#notifications');
     });
 </script>
