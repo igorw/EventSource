@@ -40,7 +40,7 @@ require 'vendor/.composer/autoload.php';
 ## Usage
 
 The first thing you need to do is output the EventSource headers, so that the
-client it's talking to an EventSource server.
+client knows it's talking to an EventSource server.
 
 ```php
 <?php
