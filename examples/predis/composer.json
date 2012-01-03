@@ -1,0 +1,6 @@
+{
+    "require": {
+        "predis/predis": ">=0.7.0",
+        "igorw/event-source": "*"
+    }
+}
