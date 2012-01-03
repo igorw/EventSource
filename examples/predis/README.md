@@ -27,6 +27,7 @@ Just follow these simple steps:
     $ redis-server
     # open client.html in your browser
     $ redis-cli PUBLISH notifications "this is a test"
+    $ redis-cli PUBLISH notifications "this is another test"
     $ redis-cli PUBLISH notifications "OMGOMGOMG ITS AMAZING"
 
 
