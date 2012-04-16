@@ -105,4 +105,19 @@ class EventWrapperTest extends \PHPUnit_Framework_TestCase
         $wrapper
             ->dump();
     }
+
+    /**
+     * @covers Igorw\EventSource\EventWrapper::__construct
+     * @covers Igorw\EventSource\EventWrapper::__call
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage Could not call non-existent method 'nonExistentMethod' on wrapped event.
+     */
+    public function testCallingNonExistentMethod()
+    {
+        $event = $this->getMock('Igorw\EventSource\Event');
+
+        $wrapper = new EventWrapper($event);
+        $wrapper
+            ->nonExistentMethod();
+    }
 }
