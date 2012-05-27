@@ -205,4 +205,13 @@ data: and a happy new year
 EOT;
         $this->assertSame($expected, $event->dump());
     }
+
+    /**
+     * @covers Igorw\EventSource\Event::create
+     */
+    public function testCreate()
+    {
+        $event = Event::create();
+        $this->assertInstanceOf('Igorw\EventSource\Event', $event);
+    }
 }

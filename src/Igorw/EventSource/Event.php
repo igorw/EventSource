@@ -123,4 +123,9 @@ class Event
 
         return implode('', $formatted);
     }
+
+    static public function create()
+    {
+        return new static();
+    }
 }
