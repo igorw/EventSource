@@ -17,5 +17,10 @@
         "psr-0": {
             "Igorw\\EventSource": "src"
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0"
+        }
     }
 }
