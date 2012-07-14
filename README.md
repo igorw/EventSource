@@ -9,7 +9,7 @@ of this protocol.
 It is designed to be transport agnostic, allowing you to use it with apache directly or with
 other webservers, such as mongrel2.
 
-[![Build Status](https://secure.travis-ci.org/igorw/EventSource.png)](http://travis-ci.org/igorw/EventSource)
+[![Build Status](https://secure.travis-ci.org/igorw/EventSource.png?branch=master)](http://travis-ci.org/igorw/EventSource)
 
 ## Fetch
 
@@ -20,21 +20,21 @@ Just create a composer.json file for your project:
 ```JSON
 {
     "require": {
-        "igorw/event-source": "*"
+        "igorw/event-source": "1.0.*"
     }
 }
 ```
 
 And run these two commands to install it:
 
-    $ wget http://getcomposer.org/composer.phar
+    $ curl -s http://getcomposer.org/installer | php
     $ php composer.phar install
 
 Now you can add the autoloader, and you will have access to the library:
 
 ```php
 <?php
-require 'vendor/.composer/autoload.php';
+require 'vendor/autoload.php';
 ```
 
 ## Usage
@@ -228,13 +228,6 @@ to be used in a wider range of browsers.
 
 Tests
 -----
-
-Before running the tests you need to have composer set up an autoloader:
-
-    $ wget http://getcomposer.org/composer.phar
-    $ php composer.phar install
-
-Now you can run the unit tests.
 
     $ phpunit
 
