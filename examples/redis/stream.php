@@ -7,7 +7,7 @@ require __DIR__.'/vendor/autoload.php';
 set_time_limit(0);
 
 $redis = new Predis\Client();
-$pubsub = $redis->pubSub();
+$pubsub = $redis->pubSubLoop();
 $pubsub->subscribe('notification');
 
 foreach (Stream::getHeaders() as $name => $value) {
