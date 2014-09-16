@@ -2,15 +2,31 @@
 
 /*
  * This file is part of EventSource.
- *
- * (c) Igor Wiedler <igor@wiedler.ch>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+*
+* (c) Igor Wiedler <igor@wiedler.ch>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 namespace Igorw\EventSource;
 
+/**
+ *
+ * @method Event addComment(string $comment)
+ * @method Event setId(integer $id)
+ * @method Event setEvent(string $event)
+ * @method Event setRetry(integer $retry)
+ * @method Event setData(string $data)
+ * @method Event appendData(string $data)
+ * @method string dump()
+ * @method string getFormattedComments()
+ * @method string getFormattedId()
+ * @method string getFormattedEvent()
+ * @method string getFormattedRetry()
+ * @method string getFormattedData()
+ *
+ */
 class EventWrapper
 {
     private $event;
@@ -52,3 +68,4 @@ class EventWrapper
         return $value;
     }
 }
+
