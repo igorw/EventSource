@@ -2,23 +2,23 @@
 
 /*
  * This file is part of EventSource.
-*
-* (c) Igor Wiedler <igor@wiedler.ch>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ *
+ * (c) Igor Wiedler <igor@wiedler.ch>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Igorw\EventSource;
 
 /**
  *
- * @method Event addComment(string $comment)
- * @method Event setId(integer $id)
- * @method Event setEvent(string $event)
- * @method Event setRetry(integer $retry)
- * @method Event setData(string $data)
- * @method Event appendData(string $data)
+ * @method \Igorw\EventSource\EventWrapper addComment(string $comment)
+ * @method \Igorw\EventSource\EventWrapper setId(integer $id)
+ * @method \Igorw\EventSource\EventWrapper setEvent(string $event)
+ * @method \Igorw\EventSource\EventWrapper setRetry(integer $retry)
+ * @method \Igorw\EventSource\EventWrapper setData(string $data)
+ * @method \Igorw\EventSource\EventWrapper appendData(string $data)
  * @method string dump()
  * @method string getFormattedComments()
  * @method string getFormattedId()
