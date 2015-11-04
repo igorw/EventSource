@@ -209,6 +209,15 @@ You just pass it to the constructor of the stream:
 $stream = new Stream($handler);
 ```
 
+If you serve PHP via FCGI, you may run into buffering issues, preventing
+individual events from being sent to the browser as they are being issued. 
+For this case the library includes a "BufferBusting" handler which outputs 
+a configurable amount of whitespace before the actual event data.
+
+While this does not interfere with the protocol, it obviously adds some 
+overhead to the network connection. Only choose this option if you are 
+unable to disable the buffers otherwise.
+
 ### PHP time limit
 
 In some setups it may be required to remove the time limit of the script.
