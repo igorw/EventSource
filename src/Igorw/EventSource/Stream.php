@@ -27,6 +27,9 @@ class Stream
         $this->handler = $handler ?: new EchoHandler();
     }
 
+    /**
+     * @return EventWrapper
+     */
     public function event()
     {
         $event = new Event();

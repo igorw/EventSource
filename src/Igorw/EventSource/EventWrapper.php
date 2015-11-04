@@ -22,11 +22,17 @@ class EventWrapper
         $this->source = $source;
     }
 
+    /**
+     * @return Event
+     */
     public function getWrappedEvent()
     {
         return $this->event;
     }
 
+    /**
+     * @return Stream
+     */
     public function end()
     {
         if ($this->source) {
