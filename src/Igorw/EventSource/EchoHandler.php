@@ -16,7 +16,7 @@ class EchoHandler
     public function __invoke($chunk)
     {
         echo $chunk;
-        ob_flush();
+        if (ob_get_level() > 0) ob_flush();
         flush();
     }
 }
